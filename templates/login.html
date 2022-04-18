@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:100,300,500">
+  <link rel="stylesheet" href="styles.css">
+  <title>Transparent Login Form</title>
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+html, body {
+    margin: 0;
+}
+
+.full-screen-container {
+  background-image: url("{{ url_for('static', filename='a.jpg') }}");
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-container {
+    background-color: hsla(201, 100%, 6%, 0.6);
+    padding: 50px 30px;
+    min-width: 200px;
+    width: 50%;
+    max-width: 400px;
+}
+
+.login-title {
+    color: white;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    color: white;
+    font-weight: lighter;
+    font-size: 1.5em;
+    margin-bottom: 7px;
+}
+
+.input-group input {
+    font-size: 1.5em;
+    padding: .1em .25em;
+    background-color: hsla(201, 100%, 91%, 0.3);
+    border: 1px solid hsl(201, 100%, 6%);
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: lighter;
+}
+
+.input-group input:focus {
+    border: 1px solid hsl(201, 100%, 50%)
+}
+
+.login-button {
+    padding: 10px 30px;
+    width: 100%;
+    border-radius: 5px; 
+    background-color: hsla(201, 100%, 50%, 0.1);
+    border: 1px solid hsl(201, 100%, 50%);
+    outline: none;
+    font-size: 1.5em;
+    color: white;
+    font-weight: lighter;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: hsla(201, 100%, 50%, 0.3)
+}
+
+.login-button:focus {
+    background-color: hsla(201, 100%, 50%, 0.5)
+}
+</style>
+
+<body>
+  <div class="full-screen-container">
+    <div class="login-container">
+      <h3 class="login-title">Welcome</h3>
+      <form action="/form_login" method="post">
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" name='username'><br>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input  name='password' ><br><br>
+        </div>
+        <button type="submit" class="login-button" value="login">Login</button> 
+        
+      </form>
+      <h1 >{{info}}</h1>
+    </div>
+  </div>
+
+</body>
+
+</html>
